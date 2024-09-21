@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cku8ox6thlmjh"]
+
+[ext_resource type="PackedScene" uid="uid://bj3hc8y7v663g" path="res://Models/TopekaWest.gltf" id="1_xtx7l"]
+[ext_resource type="Script" path="res://Marker.gd" id="2_f6bwl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vsof5"]
+sky_top_color = Color(0.0571572, 0.139302, 0.216451, 1)
+ground_bottom_color = Color(0.686275, 0.733333, 0.478431, 1)
+sun_angle_max = 83.33
+sun_curve = 0.579562
+
+[sub_resource type="Sky" id="Sky_wqtyu"]
+sky_material = SubResource("ProceduralSkyMaterial_vsof5")
+
+[sub_resource type="Environment" id="Environment_d1508"]
+background_mode = 2
+sky = SubResource("Sky_wqtyu")
+reflected_light_source = 1
+adjustment_enabled = true
+adjustment_contrast = 1.2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="TopekaWest" parent="." instance=ExtResource("1_xtx7l")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d1508")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.785468, -0.379867, 0.488611, -4.96406e-09, 0.789481, 0.613776, -0.618902, -0.482101, 0.620112, 0, 34.0398, 0)
+directional_shadow_mode = 1
+directional_shadow_split_2 = 0.796
+directional_shadow_split_3 = 0.601
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.0873, 7.73715, 0)
+radius = 4.309
+script = ExtResource("2_f6bwl")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.79541, 0.606072, 0, -0.606072, 0.79541, 0, 88.2176, 0)
