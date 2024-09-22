@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bv4n3oja4urjk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0f1x5"]
+bg_color = Color(0.4161, 0.583513, 0.73, 0.470588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18qmy"]
+bg_color = Color(0.6314, 0.6776, 0.77, 0.529412)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+expand_margin_top = 16.0
+expand_margin_bottom = 16.0
+shadow_color = Color(0, 0, 0, 0.231373)
+shadow_size = 10
+
+[sub_resource type="SystemFont" id="SystemFont_eybrd"]
+font_names = PackedStringArray("Ink Free")
+
+[resource]
+default_font = SubResource("SystemFont_eybrd")
+ItemList/colors/font_color = Color(0.87, 0.87, 0.87, 1)
+ItemList/constants/v_separation = 16
+ItemList/styles/panel = SubResource("StyleBoxFlat_0f1x5")
+Panel/styles/panel = SubResource("StyleBoxFlat_18qmy")

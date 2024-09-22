@@ -11,9 +11,16 @@ config_version=5
 [application]
 
 config/name="High School Helper"
-run/main_scene="res://SchoolView.tscn"
+run/main_scene="res://Scenes/SchoolView.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Textures/icon.svg"
+
+[display]
+
+window/size/viewport_width=323
+window/size/viewport_height=700
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
 
 [rendering]
 
