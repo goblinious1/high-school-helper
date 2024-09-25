@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cku8ox6thlmjh"]
+[gd_scene load_steps=8 format=3 uid="uid://cku8ox6thlmjh"]
 
 [ext_resource type="Script" path="res://Scripts/Marker.gd" id="1_0ry6d"]
 [ext_resource type="PackedScene" uid="uid://baka60tqfcx5b" path="res://Models/TopekaWest.blend" id="2_bdmic"]
+[ext_resource type="Script" path="res://Scenes/MapCamera.gd" id="2_kmhmu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vsof5"]
 sky_top_color = Color(0.0571572, 0.139302, 0.216451, 1)
@@ -17,6 +18,9 @@ background_mode = 2
 sky = SubResource("Sky_wqtyu")
 reflected_light_source = 1
 fog_depth_end = 388.9
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1nkc6"]
+plane = Plane(0, 1, 0, 2.945)
 
 [node name="Node3D" type="Node3D"]
 
@@ -37,5 +41,13 @@ script = ExtResource("1_0ry6d")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.00190207, 0.999998, 0, -0.999998, 0.00190207, 0, 88.2176, 0)
 fov = 118.3
+script = ExtResource("2_kmhmu")
 
 [node name="TopekaWest" parent="." instance=ExtResource("2_bdmic")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_1nkc6")
+
+[connection signal="input_event" from="StaticBody3D" to="Camera3D" method="_on_static_body_3d_input_event"]
