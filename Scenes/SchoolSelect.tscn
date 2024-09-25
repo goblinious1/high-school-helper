@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://sts5yyneslku"]
+[gd_scene load_steps=8 format=3 uid="uid://sts5yyneslku"]
 
 [ext_resource type="Texture2D" uid="uid://cri771vdkgwr" path="res://Textures/pencil_background.jpg" id="1_0nagb"]
 [ext_resource type="Theme" uid="uid://bv4n3oja4urjk" path="res://Resources/HighTheme.tres" id="2_hbquv"]
+[ext_resource type="Script" path="res://Scenes/SchoolChooser.gd" id="3_fov54"]
 
 [sub_resource type="SystemFont" id="SystemFont_t3s45"]
 font_names = PackedStringArray("Ink Free")
@@ -40,15 +41,15 @@ stretch_mode = 6
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.1
+anchor_top = 0.05
 anchor_right = 0.5
-anchor_bottom = 0.1
+anchor_bottom = 0.05
 offset_left = -63.135
 offset_right = 71.865
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "High School
-Helper!!"
+text = "Fast
+2 Class"
 label_settings = SubResource("LabelSettings_f8gng")
 horizontal_alignment = 1
 
@@ -62,6 +63,7 @@ anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_hbquv")
+script = ExtResource("3_fov54")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -94,3 +96,5 @@ item_1/text = "Topeka High (WIP)"
 item_1/disabled = true
 item_2/text = "Washburn Rural (WIP)"
 item_2/disabled = true
+
+[connection signal="item_activated" from="Panel/VBoxContainer/ItemList" to="Panel" method="_on_item_list_item_activated"]

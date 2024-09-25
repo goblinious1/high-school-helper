@@ -19,8 +19,8 @@ sky = SubResource("Sky_wqtyu")
 reflected_light_source = 1
 fog_depth_end = 388.9
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1nkc6"]
-plane = Plane(0, 1, 0, 2.945)
+[sub_resource type="BoxShape3D" id="BoxShape3D_vraog"]
+size = Vector3(300, 1, 300)
 
 [node name="Node3D" type="Node3D"]
 
@@ -48,6 +48,6 @@ script = ExtResource("2_kmhmu")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("WorldBoundaryShape3D_1nkc6")
+shape = SubResource("BoxShape3D_vraog")
 
 [connection signal="input_event" from="StaticBody3D" to="Camera3D" method="_on_static_body_3d_input_event"]
