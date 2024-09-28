@@ -98,3 +98,4 @@ item_2/text = "Washburn Rural (WIP)"
 item_2/disabled = true
 
 [connection signal="item_activated" from="Panel/VBoxContainer/ItemList" to="Panel" method="_on_item_list_item_activated"]
+[connection signal="item_selected" from="Panel/VBoxContainer/ItemList" to="Panel" method="_on_item_list_item_activated"]
