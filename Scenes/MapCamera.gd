@@ -1,6 +1,6 @@
 extends Camera3D
 
-var lastEvPos: Vector3 = Vector3(0,0,0)
+var lastEvPos = null
 
 func _on_static_body_3d_input_event(camera, event, event_position, normal, shape_idx):
 	#if event is InputEventMouseButton:
@@ -9,12 +9,16 @@ func _on_static_body_3d_input_event(camera, event, event_position, normal, shape
 	#	position = Vector3(event_position.x, position.y, event_position.z) 
 	if event is InputEventScreenTouch:
 		lastEvPos = event_position
-	if event is InputEventScreenDrag:
-		print("drag: ", event.relative)
+	if event is InputEventScreenDrag and lastEvPos != null:
+		var move:Vector3 = (lastEvPos - event_position)
 		
-		get_parent().position += (lastEvPos - event_position).limit_length(3)
+		if move.length() > 180:
+			print("Canceled drag because distance was too great")
+			lastEvPos = null
+			return
+		get_parent().position += move
 	if event is InputEventMagnifyGesture:
-		print(event.delta)
+		position = position.move_toward(get_parent().position, event.delta)
 	if event is InputEventPanGesture:
 		get_parent().rotation.x += event.delta.y
 		
