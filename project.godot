@@ -10,9 +10,11 @@ config_version=5
 
 [application]
 
-config/name="High School Helper"
+config/name="Fast2Class"
 run/main_scene="res://Scenes/SchoolSelect.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/bg_color=Color(0.95023, 0.900634, 0.495092, 1)
+boot_splash/image="res://Textures/logo.png"
 config/icon="res://Textures/icon.svg"
 
 [display]
@@ -21,6 +23,11 @@ window/size/viewport_width=323
 window/size/viewport_height=700
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+pointing/emulate_mouse_from_touch=false
 
 [rendering]
 

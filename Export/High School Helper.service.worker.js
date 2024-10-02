@@ -4,9 +4,9 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1727485265|215518261540';
+const CACHE_VERSION = '1727906296|4030953710';
 /** @type {string} */
-const CACHE_PREFIX = 'High School Help-sw-cache-';
+const CACHE_PREFIX = 'Fast2Class-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 /** @type {string} */
 const OFFLINE_URL = 'High School Helper.offline.html';

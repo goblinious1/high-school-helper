@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cku8ox6thlmjh"]
+[gd_scene load_steps=9 format=3 uid="uid://cku8ox6thlmjh"]
 
 [ext_resource type="Script" path="res://Scripts/Marker.gd" id="1_0ry6d"]
 [ext_resource type="PackedScene" uid="uid://baka60tqfcx5b" path="res://Models/TopekaWest.blend" id="2_bdmic"]
@@ -17,7 +17,11 @@ sky_material = SubResource("ProceduralSkyMaterial_vsof5")
 background_mode = 2
 sky = SubResource("Sky_wqtyu")
 reflected_light_source = 1
+glow_enabled = true
 fog_depth_end = 388.9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vg8w"]
+albedo_color = Color(0, 3, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vraog"]
 size = Vector3(300, 1, 300)
@@ -35,11 +39,15 @@ directional_shadow_split_3 = 0.601
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.0873, 7.73715, 0)
-radius = 4.309
+radius = 1.452
+rings = 12
+material = SubResource("StandardMaterial3D_3vg8w")
 script = ExtResource("1_0ry6d")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.00190207, 0.999998, 0, -0.999998, 0.00190207, 0, 88.2176, 0)
+[node name="CameraAnchor" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 42.1969, 0)
 fov = 118.3
 script = ExtResource("2_kmhmu")
 
@@ -50,4 +58,4 @@ script = ExtResource("2_kmhmu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_vraog")
 
-[connection signal="input_event" from="StaticBody3D" to="Camera3D" method="_on_static_body_3d_input_event"]
+[connection signal="input_event" from="StaticBody3D" to="CameraAnchor/Camera3D" method="_on_static_body_3d_input_event"]

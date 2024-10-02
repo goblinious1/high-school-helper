@@ -1,22 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://sts5yyneslku"]
+[gd_scene load_steps=4 format=3 uid="uid://sts5yyneslku"]
 
 [ext_resource type="Texture2D" uid="uid://cri771vdkgwr" path="res://Textures/pencil_background.jpg" id="1_0nagb"]
 [ext_resource type="Theme" uid="uid://bv4n3oja4urjk" path="res://Resources/HighTheme.tres" id="2_hbquv"]
 [ext_resource type="Script" path="res://Scenes/SchoolChooser.gd" id="3_fov54"]
-
-[sub_resource type="SystemFont" id="SystemFont_t3s45"]
-font_names = PackedStringArray("Ink Free")
-
-[sub_resource type="LabelSettings" id="LabelSettings_f8gng"]
-font = SubResource("SystemFont_t3s45")
-font_size = 41
-
-[sub_resource type="SystemFont" id="SystemFont_8dhpq"]
-font_names = PackedStringArray("Ink Free")
-
-[sub_resource type="LabelSettings" id="LabelSettings_2nsgn"]
-font = SubResource("SystemFont_8dhpq")
-font_size = 32
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -48,9 +34,10 @@ offset_left = -63.135
 offset_right = 71.865
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("2_hbquv")
+theme_override_font_sizes/font_size = 36
 text = "Fast
 2 Class"
-label_settings = SubResource("LabelSettings_f8gng")
 horizontal_alignment = 1
 
 [node name="Panel" type="Panel" parent="."]
@@ -79,8 +66,8 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 26
 text = "Select a High School:"
-label_settings = SubResource("LabelSettings_2nsgn")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

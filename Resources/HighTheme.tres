@@ -1,5 +1,7 @@
 [gd_resource type="Theme" load_steps=4 format=3 uid="uid://bv4n3oja4urjk"]
 
+[ext_resource type="FontFile" uid="uid://b4ybpssup4txb" path="res://Resources/Schoolbell-Regular.ttf" id="1_fl2x5"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0f1x5"]
 bg_color = Color(0.4161, 0.583513, 0.73, 0.470588)
 
@@ -14,12 +16,10 @@ expand_margin_bottom = 16.0
 shadow_color = Color(0, 0, 0, 0.231373)
 shadow_size = 10
 
-[sub_resource type="SystemFont" id="SystemFont_eybrd"]
-font_names = PackedStringArray("Ink Free")
-
 [resource]
-default_font = SubResource("SystemFont_eybrd")
+Control/fonts/font = ExtResource("1_fl2x5")
 ItemList/colors/font_color = Color(0.87, 0.87, 0.87, 1)
 ItemList/constants/v_separation = 16
+ItemList/fonts/font = null
 ItemList/styles/panel = SubResource("StyleBoxFlat_0f1x5")
 Panel/styles/panel = SubResource("StyleBoxFlat_18qmy")
