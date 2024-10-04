@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1727908437|6172360034';
+const CACHE_VERSION = '1728082888|161178512544';
 /** @type {string} */
 const CACHE_PREFIX = 'Fast2Class-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;

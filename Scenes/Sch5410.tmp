@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://cku8ox6thlmjh"]
+
+[ext_resource type="Script" path="res://Scripts/Marker.gd" id="1_0ry6d"]
+[ext_resource type="PackedScene" uid="uid://baka60tqfcx5b" path="res://Models/TopekaWest.blend" id="2_bdmic"]
+[ext_resource type="Script" path="res://Scenes/MapCamera.gd" id="2_kmhmu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vsof5"]
+sky_top_color = Color(0.0571572, 0.139302, 0.216451, 1)
+ground_bottom_color = Color(0.435294, 0.45098, 0.25098, 1)
+sun_angle_max = 83.33
+sun_curve = 0.579562
+
+[sub_resource type="Sky" id="Sky_wqtyu"]
+sky_material = SubResource("ProceduralSkyMaterial_vsof5")
+
+[sub_resource type="Environment" id="Environment_d1508"]
+background_mode = 2
+sky = SubResource("Sky_wqtyu")
+reflected_light_source = 1
+fog_depth_end = 388.9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vg8w"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vraog"]
+size = Vector3(300, 1, 300)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d1508")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.785468, -0.379867, 0.488611, -4.96406e-09, 0.789481, 0.613776, -0.618902, -0.482101, 0.620112, 0, 34.0398, 0)
+directional_shadow_mode = 1
+directional_shadow_split_2 = 0.796
+directional_shadow_split_3 = 0.601
+
+[node name="CameraAnchor" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 42.1969, 0)
+fov = 118.3
+script = ExtResource("2_kmhmu")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CameraAnchor"]
+flip_faces = true
+radius = 1.452
+rings = 12
+material = SubResource("StandardMaterial3D_3vg8w")
+script = ExtResource("1_0ry6d")
+
+[node name="TopekaWest" parent="." instance=ExtResource("2_bdmic")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_vraog")
+
+[connection signal="input_event" from="StaticBody3D" to="CameraAnchor/Camera3D" method="_on_static_body_3d_input_event"]

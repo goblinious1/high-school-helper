@@ -17,11 +17,10 @@ sky_material = SubResource("ProceduralSkyMaterial_vsof5")
 background_mode = 2
 sky = SubResource("Sky_wqtyu")
 reflected_light_source = 1
-glow_enabled = true
 fog_depth_end = 388.9
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vg8w"]
-albedo_color = Color(0, 3, 5, 1)
+albedo_color = Color(0, 1, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vraog"]
 size = Vector3(300, 1, 300)
@@ -37,13 +36,6 @@ directional_shadow_mode = 1
 directional_shadow_split_2 = 0.796
 directional_shadow_split_3 = 0.601
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.0873, 7.73715, 0)
-radius = 1.452
-rings = 12
-material = SubResource("StandardMaterial3D_3vg8w")
-script = ExtResource("1_0ry6d")
-
 [node name="CameraAnchor" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
@@ -51,11 +43,25 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 42.
 fov = 118.3
 script = ExtResource("2_kmhmu")
 
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CameraAnchor"]
+material = SubResource("StandardMaterial3D_3vg8w")
+script = ExtResource("1_0ry6d")
+
 [node name="TopekaWest" parent="." instance=ExtResource("2_bdmic")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_vraog")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Console" type="TextEdit" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_top = 552.0
+offset_right = 323.0
+offset_bottom = 700.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [connection signal="input_event" from="StaticBody3D" to="CameraAnchor/Camera3D" method="_on_static_body_3d_input_event"]
