@@ -19,6 +19,7 @@ func _input(event):
 			print("Canceled drag because distance was too great")
 			return
 		get_parent().position -= Vector3(move.x, 0, move.y)
+		return
 
 #func _input(event):
 	#if event is InputEventSingleScreenLongPress:
