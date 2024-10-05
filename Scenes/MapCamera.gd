@@ -1,6 +1,6 @@
 extends Camera3D
-var lastEvPos
 func _input(event):
+	%Console.text = str("Input Type:" + event.get_class()) + "\n" + %Console.text
 	if event is InputEventMultiScreenDrag or event is InputEventScreenPinch:
 		%Console.text = str("MultiDrag... Fingers:" + str(event.fingers)) + "\n" + %Console.text
 	if event is InputEventSingleScreenLongPress:
