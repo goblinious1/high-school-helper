@@ -63,5 +63,6 @@ offset_right = 323.0
 offset_bottom = 700.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+text = "YOU ARE RUNNING 0.0.2"
 
 [connection signal="input_event" from="StaticBody3D" to="CameraAnchor/Camera3D" method="_on_static_body_3d_input_event"]
